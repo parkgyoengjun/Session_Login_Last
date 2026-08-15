@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.practice2.controller.LoginControllerTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2026-08-15T08:26:45.319Z" hostname="JUN" time="2.409">
+  <properties/>
+  <testcase name="login_success_mypage_redirect()" classname="com.example.practice2.controller.LoginControllerTest" time="0.784"/>
+  <testcase name="LoginedSession_true_myPage()" classname="com.example.practice2.controller.LoginControllerTest" time="0.067">
+    <failure message="java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.example.practice2.controller.LoginControllerTest.LoginedSession_true_myPage(LoginControllerTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <testcase name="Not_Login_GoToMypage_Redirect_LoginPage()" classname="com.example.practice2.controller.LoginControllerTest" time="0.06"/>
+  <system-out><![CDATA[17:26:45.422 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.practice2.controller.LoginControllerTest]: LoginControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:26:45.520 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.practice2.Practice2Application for test class com.example.practice2.controller.LoginControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-15T17:26:45.838+09:00  INFO 1960 --- [practice2] [    Test worker] c.e.p.controller.LoginControllerTest     : Starting LoginControllerTest using Java 17 with PID 1960 (started by qrw20 in C:\Users\qrw20\coding\Spring_Project\practice2)
+2026-08-15T17:26:45.838+09:00  INFO 1960 --- [practice2] [    Test worker] c.e.p.controller.LoginControllerTest     : No active profile set, falling back to 1 default profile: "default"
+Filter 실행
+Interceptor 실행
+2026-08-15T17:26:46.766+09:00  INFO 1960 --- [practice2] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-15T17:26:46.766+09:00  INFO 1960 --- [practice2] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-15T17:26:46.766+09:00  INFO 1960 --- [practice2] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-08-15T17:26:46.802+09:00  INFO 1960 --- [practice2] [    Test worker] c.e.p.controller.LoginControllerTest     : Started LoginControllerTest in 1.173 seconds (process running for 1.972)
+testId$2a$10$fBEmzfoTdyrlaajPmiR59euqdl6J22EDtUfyRXk469FiGuX.Tf.gC테스트닉네임 회원가입 완료 service
+1 repository count @@@@
+1 회원가입 완료 repository
+service - 로그인 메서드 성공
+로그인 성공
+testId$2a$10$3Mk1mvQ5TKzxZmUf8Ia8HeszHawXg.pc.J6fvSf5wyMpJbZ8fO0B2테스트닉네임 회원가입 완료 service
+2 repository count @@@@
+2 회원가입 완료 repository
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /save
+       Parameters = {savedId=[testId], password=[testPassword], nickname=[테스트닉네임]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.practice2.controller.MemberController
+           Method = com.example.practice2.controller.MemberController#save(String, String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = redirect:/login
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Content-Language:"en", Location:"/login"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /login
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /mypage
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = null
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 302
+    Error message = null
+          Headers = [Location:"/login"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /login
+          Cookies = []
+testId$2a$10$R5Qu2ut8v.qNG56dT7isVevjIakO6y0rwWTh0ZBKJnGwjQopkzir2테스트닉네임 회원가입 완료 service
+3 repository count @@@@
+3 회원가입 완료 repository
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

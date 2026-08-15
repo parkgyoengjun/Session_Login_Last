@@ -14,7 +14,7 @@ public class HomeController {
     public String home(HttpServletRequest req,Model model) {
         HttpSession session = req.getSession(false);
 
-        if (session == null || session.getAttribute("loginedUser") == null) {
+        if (session == null || session.getAttribute("loginUser") == null) {
             return "home";
         } else {
             Member loginUser = (Member)session.getAttribute("loginUser");

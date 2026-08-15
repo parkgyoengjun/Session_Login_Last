@@ -2,12 +2,16 @@ package com.example.practice2.config;
 
 import com.example.practice2.filter.LoginCheckFilter;
 import com.example.practice2.interceptor.LoginCheckInterceptor;
+import com.example.practice2.resolver.LoginUserArgumentResolver;
 import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -48,5 +52,15 @@ public class WebConfig implements WebMvcConfigurer {
         System.out.println("Interceptor 실행");
         // Filter 는 필터코드 안에서 로직을 직접 짜야 하지만, Interceptor 는 제외 경로를 옵션으로 넘기기만 하면됨
         // interceptor 가 filter 보다 스프링에 친화적인 이유
+    }
+
+    // Resolver
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        // 커스텀 ArgumentResolver를 등록하고 싶으면 여기에 추가
+
+        resolvers.add(new LoginUserArgumentResolver());
+        // 스프링이 관리하는 리볼버 목록(resolvers)에, LoginUserArgumentResolver 추가
+        // 이 과정이 있어야 리졸버가 처리할 수 있음
     }
 }///
