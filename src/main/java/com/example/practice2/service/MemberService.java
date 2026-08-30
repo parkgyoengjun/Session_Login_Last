@@ -1,6 +1,5 @@
 package com.example.practice2.service;
 
-import com.example.practice2.config.Config;
 import com.example.practice2.domain.Member;
 import com.example.practice2.repository.MemoryMemberRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

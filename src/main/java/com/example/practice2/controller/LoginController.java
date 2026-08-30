@@ -5,7 +5,6 @@ import com.example.practice2.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +24,9 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(@RequestParam(name = "loginId") String loginId, @RequestParam(name = "password") String password,
-                        HttpServletRequest request, Model model) {
+                        HttpServletRequest request) {
+        // HttpSession 으로 안받고 HttpServletRequest 로 받는 이유
+        // servlet 이 더 상위 개념이고 session 생성 컨트롤을 하기위해
         if (loginId != null && password != null) {
             Member loginUser = service.login(loginId, password);
                 if (loginUser != null) {

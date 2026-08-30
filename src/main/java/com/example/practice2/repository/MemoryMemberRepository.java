@@ -14,12 +14,13 @@ public class MemoryMemberRepository implements MemberRepository{
     private Long count =0L;
 
     @Override
-    public Member save(Member member) {
+    public void save(Member member) {
         ++count;
-        System.out.println(count +" repository count @@@@");
         Member saveMember = new Member(count, member.getLoginId(), member.getPassword(), member.getNickname());
+
+        System.out.println(count +" repository count @@@@");
         System.out.println(count+  " 회원가입 완료 repository");
-        return map.put( count, saveMember);  // 여기서 틀림 map.put( count, saveMember) 이 아님
+        map.put( count, saveMember);  // 여기서 틀림 map.put( count, saveMember) 이 아님
     }
 
     @Override
