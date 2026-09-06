@@ -32,6 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
         filterRegistrationBean.setFilter(new LoginCheckFilter()); // 빈에 등록
         filterRegistrationBean.setOrder(1); // 필터가 여러 개일때 실행 순서 지정( 숫자가 작을수록 먼저 실행)
         filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.setEnabled(false); // springSecurity 를 사용하기 위해 비활성화
         // 모든 URL 에 적용, 실제 로그인 체크여부는 필터 내부의 whiteList 로 걸러냄
         System.out.println("Filter 실행");
         return filterRegistrationBean;
@@ -44,10 +45,13 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 스프링이 애플리케이션을 초기화할 때, 등록하고싶은 인터셉터가 있는지 확인하려고 자동으로 호출해주는 메서드
         // registry - 여기에 인터셉터를 추가하면 스프링이 내부적으로 관리
-        registry.addInterceptor(new LoginCheckInterceptor()) // LoginCheckInterceptor를 등록대상 지정
-                .order(1) // setOder 와 같은 기능, 숫자 작을수록 먼저 진행
-                .addPathPatterns("/**") // 패턴지정 /** 는 모든경로와 그 하위경로까지 포함하는 패턴
-                .excludePathPatterns("/", "/login", "/save", "/cass/**", "/js/**");
+//        registry.addInterceptor(new LoginCheckInterceptor()) // LoginCheckInterceptor를 등록대상 지정
+//                .order(1) // setOder 와 같은 기능, 숫자 작을수록 먼저 진행
+//                .addPathPatterns("/**") // 패턴지정 /** 는 모든경로와 그 하위경로까지 포함하는 패턴
+//                .excludePathPatterns("/", "/login", "/save", "/cass/**", "/js/**");
+        /**
+         * springSecurity 를 사용하기 위해 주석처리
+         */
                 // 전체 지정한 것 중에서, 이 안에 있는 경로들은 인터셉터 검사에서 제외
         System.out.println("Interceptor 실행");
         // Filter 는 필터코드 안에서 로직을 직접 짜야 하지만, Interceptor 는 제외 경로를 옵션으로 넘기기만 하면됨

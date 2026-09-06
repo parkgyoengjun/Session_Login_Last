@@ -40,9 +40,9 @@ public class MemberService {
         if (byId.getLoginId().equals(loginId) && passwordEncoder.matches(password, byId.getPassword())) {
             System.out.println("service - 로그인 메서드 성공");
             return byId;
+        } else {
+            System.out.println("service - 로그인 메서드 실패");;
+            return null;
         }
-
-        System.out.println("service - 로그인 메서드 실패");
-        return null;
     }
 }///

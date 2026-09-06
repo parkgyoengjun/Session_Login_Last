@@ -8,6 +8,13 @@
     <p>Mypage</p>
     <p th:text="${loginUser.nickname} +' 님 환영합니다.'"></p>
 <!--    수정하는것은 나중에 만들기-->
-    <a href="/logout">logout</a>
+    <form th:action="@{/logout}" method="post">
+        <!--  security 때문에 바꿈
+                GET은 링크만 있으면 누구나 실행시킬수 있음
+                상태를 변경하는 요청에는 적합하지 않음
+        -->
+        <button type="submit">로그아웃</button>
+    </form>
+<!--    <a href="/logout">logout</a>-->
 </body>
 </html>

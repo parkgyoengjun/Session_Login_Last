@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Repository
 public class MemoryMemberRepository implements MemberRepository{
@@ -20,7 +19,8 @@ public class MemoryMemberRepository implements MemberRepository{
 
         System.out.println(count +" repository count @@@@");
         System.out.println(count+  " 회원가입 완료 repository");
-        map.put( count, saveMember);  // 여기서 틀림 map.put( count, saveMember) 이 아님
+//        map.put( count, saveMember);  // 여기서 틀림 map.put( count, saveMember) 보다 member에서 꺼내서 넣어주는게 좋음
+        map.put(saveMember.getIdNum(), saveMember);
     }
 
     @Override

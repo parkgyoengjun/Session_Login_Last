@@ -5,9 +5,9 @@ public class Member {
     private  String loginId;
     private  String password;
     private  String nickname;
-    // final 은 객체 생성 시 한번만 설정하는 것이기때문에, idNum  같은 경우 객체 생성 후 나중에 정해지기때문에
-    // final 을 하지 않음  ex) final = 금액, 좌표 같은것들
-    // 즉, 수정 가능한거나 객체 생성 후 값이 정해지는것은 final 을 안붙이는게 좋다.
+    // final 같은 경우 실수로 값을 바꾸는것을 컴파일단계에서 차단
+    // 자바 같은 겨우 멀티스레드 환경이므로 동시성 버그가 생길수 있는데 final 이 막아줌
+
 
     public Member(Long idNum,String loginId,String password, String nickname) {
         this.idNum = idNum;

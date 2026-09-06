@@ -2,9 +2,11 @@ package com.example.practice2.controller;
 
 import com.example.practice2.annotation.LoginUser;
 import com.example.practice2.domain.Member;
+import com.example.practice2.security.PrincipalDetails;
 import com.example.practice2.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,12 +51,13 @@ public class MemberController {
     // HttpSession, getAttribute 캐스팅 코드가 사라짐
     // 파라미터에 @LoginUser Member loginUser 선언하면 스프링이 자동으로 값을 채워줌
     @GetMapping("/mypage")
-    public String mypageForm(@LoginUser Member loginUser, Model model) {
-        model.addAttribute("loginUser", loginUser);
+//    public String mypageForm(@LoginUser Member loginUser, Model model) {
+    public String mypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model) {
+        model.addAttribute("loginUser", principalDetails.getMember());
         return "mypage";
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {

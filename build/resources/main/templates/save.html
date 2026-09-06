@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Save</title>
@@ -7,7 +7,7 @@
 <body>
 <h1>Save</h1>
 <div>
-    <form action="/save" method="post">
+    <form th:action="@{/save}" method="post">
         아이디: <input type="text" name="savedId"><br>
         비밀번호 :<input type="text" name="password"><br>
         닉네임 : <input type="text" name="nickname"><br>
