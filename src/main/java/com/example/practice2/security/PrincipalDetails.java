@@ -23,7 +23,8 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER")); // 권한 - 지금은 단일 권한만
+//        return List.of(new SimpleGrantedAuthority("ROLE_USER")); // 권한 - 지금은 단일 권한만
+        return List.of(new SimpleGrantedAuthority(member.getro));
     }
 
     @Override

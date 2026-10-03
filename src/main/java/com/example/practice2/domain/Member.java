@@ -7,17 +7,22 @@ public class Member {
     private  String nickname;
     // final 같은 경우 실수로 값을 바꾸는것을 컴파일단계에서 차단
     // 자바 같은 겨우 멀티스레드 환경이므로 동시성 버그가 생길수 있는데 final 이 막아줌
+    private String role;
 
-
-    public Member(Long idNum,String loginId,String password, String nickname) {
+    public Member(Long idNum,String loginId,String password, String nickname, String role) {
         this.idNum = idNum;
         this.loginId = loginId;
         this.password = password;
         this.nickname = nickname;
+        this.role = role;
     }
 
     public static Member of(String userId, String password, String nickname) {
-        return new Member(null, userId, password, nickname);
+        return new Member(null, userId, password, nickname,"ROLE_USER");
+    }
+
+    public String getRole() {
+        return role;
     }
 
     public Long getIdNum() {

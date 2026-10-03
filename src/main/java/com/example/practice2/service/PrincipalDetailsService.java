@@ -19,7 +19,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // security 가 로그인 폼에서 아디를 받으면, 더 이상 자기 내부의 임시 user 계정을 안 찾고,
+        // security 가 로그인 폼에서 아이디를 받으면, 더 이상 자기 내부의 임시 user 계정을 안 찾고,
         // 이 메서드를 호출해서 MemberRepository 를 조회
         Member member = memberRepository.findByLoginId(username);
 
